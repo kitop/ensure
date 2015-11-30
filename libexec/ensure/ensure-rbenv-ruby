@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+ensure rbenv
+if [ -f ~/.zshrc ]; then
+  . ~/.zshrc
+else
+  . ~/.bashrc
+fi
+
+ensure package ruby-build
+
+installed="";
+
+version=$1;
+
+rbenv install -s "$version";
+
