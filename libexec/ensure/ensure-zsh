@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+location=/usr/local/bin/zsh
+
+configured="$(cat /etc/shells | grep ${location})"
+
+if [ -z "$configured" ]; then
+  echo ${location} | sudo tee -a /etc/shells
+  chsh -s ${location}
+fi
